@@ -47,7 +47,7 @@ db.serialize(() => {
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
-  response.sendFile(`${__dirname}/views/index.html`);
+  response.sendFile(`${__dirname}/index.html`);
 });
 
 // endpoint to get all the dreams in the database
