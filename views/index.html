@@ -1,0 +1,257 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Raise The Standard</title>
+    <meta name="description" content="A web tool for redesigning the state flag of Mississippi" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://cdn.glitch.com/81356b19-3300-460f-813c-f2d7801cd2a8%2Fimg_v.png?v=1579104353562"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cloud.typography.com/6893636/7888192/css/fonts.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+
+  <body>
+
+    <div id="page">
+      <section id="div1" class="open">
+        <a href="#" class="nav" onclick="closeSubmission()">Intro</a>
+        <div class="intro-p">
+          <h1>
+            This website is a tool to help people design a
+            new flag for the state of Mississippi. You can use the current pieces and rearrange them into something better, or you can from scratch and create something completely new.<br><br>If you are looking for a place to start, check out the resources for info on Mississippi's history, good flag design principles, and great inspiration.
+          </h1>
+        </div>
+        <div class="foot">
+          <p>
+            Instagram:
+            <a
+              href="https://www.instagram.com/raisethestandardms/"
+              target="_blank"
+              >@raisethestandardms</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section id="div2">
+        <a href="#" class="nav" onclick="closeSubmission()">Design</a>
+        <div class="des-p">
+          <h1>
+            <span class="nogo">Currently, our flag design tool does not work on mobile. :( <br>We'd love for you to
+              come back to the site on a desktop and design a flag!</span>
+          </h1>
+          <h1>
+            <span class="nogo"
+              >While you're here, you can still check out the Gallery below to see what
+              other folks have made.</span
+            >
+          </h1>
+        </div>
+        <div id="canvas-editor">
+          <canvas id="c"></canvas>
+        </div>
+        <div class="foot">
+          <button
+            class="btn rect sq"
+            onclick="Add_Rectangle()"
+            title="add a rectangle"
+          >
+            <img
+              src="https://cdn.glitch.com/81356b19-3300-460f-813c-f2d7801cd2a8%2Ftools-05.png?v=1578410017041"
+            />
+          </button>
+          <button
+            class="btn circle sq"
+            onclick="Add_Circle()"
+            title="add a cirlce"
+          >
+            <img
+              src="https://cdn.glitch.com/81356b19-3300-460f-813c-f2d7801cd2a8%2Ftools-06.png?v=1578410017184"
+            />
+          </button>
+          <button class="btn star sq" onclick="Add_Star()" title="add a star">
+            <img
+              src="https://cdn.glitch.com/81356b19-3300-460f-813c-f2d7801cd2a8%2Ftools-07.png?v=1578410017167"
+            />
+          </button>
+          <button
+            class="btn copypaste sq"
+            onclick="Copy(), Paste()"
+            title="copy and paste current shape"
+          >
+            <img
+              src="https://cdn.glitch.com/81356b19-3300-460f-813c-f2d7801cd2a8%2Ftools-08.png?v=1578410017075"
+            />
+          </button>
+          <button
+            class="btn delete sq"
+            onclick="Remove_Object()"
+            title="remove current shape"
+          >
+            <img
+              src="https://cdn.glitch.com/81356b19-3300-460f-813c-f2d7801cd2a8%2Ftools-09.png?v=1578410017196"
+            />
+          </button>
+          <div class="color-selector">
+          <input class="bar3" type="color" id="color" value="#3fa9f5" />
+          <button class="btn clr" onclick="applyFillColor()" title="apply fill color">
+            Apply Fill Color
+          </button>
+        </div>
+
+          <button onclick="openSubmission()" class="btn submit">
+            Submit &#8599;
+          </button>
+        </div>
+
+        <div
+          style="width: 100%; display: inline-block; vertical-align: top; height: 170px; padding: 0px; margin: 0px;"
+        >
+            <div class="submit-section">
+              <div class="text-fields">
+                <a href="submit">Entry Form</a>
+
+                <div class="column-submit">
+                  
+                  <form>
+        <input
+          name="dream"
+          aria-label="a new dream"
+          type="text"
+          maxlength="100"
+          placeholder="Name!"
+          autofill="false"     
+        />
+        <input
+          name="description"
+          aria-label="a new description"
+          type="text"
+          maxlength="500"
+          placeholder="Describe your design!"
+          autofill="false"
+        />
+        <button type="submit" id="submit-dream">
+          Submit Flag
+        </button>
+                    
+      </form>
+                  
+                  <button class="cancel" onclick="closeSubmission()">Cancel</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div id="help__button">
+          <p>
+            Help!
+          </p>
+        </div>
+
+        <div id="helpbox">
+          <h3>Keyboard Shortcuts</h3>
+          <a href="#" id="close">×</a>
+          <div id="help">
+            <p>
+              Press <span class="key">DELETE</span> to remove the selected shape
+              from the artboard.
+            </p>
+            <p>
+              Press the <span class="key">ARROW </span> keys to nudge the selected
+              shape.
+            </p>
+            <p>
+              Press <span class="key">G</span> to toggle the overlay guides on and off.
+            </p>
+            <p>
+              Press <span class="key">[</span> to move and object back one layer. Press <span class="key">]</span> to move an object forward one layer.
+            </p>
+          </div>
+        </div>
+        <div class="overlaygrid"></div>
+      </section>
+
+      <section id="div3">
+        <a href="#" class="nav" onclick="closeSubmission()">Gallery</a>
+
+        <div class="flags" id="dreams">
+        </div>
+        <div class="foot">
+          <p class="view-size">View as: <a href="#" class="view-grid selected">Grid</a><a href="#" class="view-list">List</a></p>
+        </div>
+      </section>
+
+      <section id="div4">
+        <a href="#" class="nav" onclick="closeSubmission()">Resources</a>
+        <div class="res-p">
+          <ul>
+            <li>
+              <a href="https://www.stennisflagflyers.com/" target="_blank"
+                >A Great Example →</a
+              >
+            </li>
+            <!--         <li>
+          <a href="#" target="_blank"><span class="title">Good Flag, Bad Flag</span> by Ted Kaye →</a>
+        </li> -->
+            <li>
+              <a
+                href="https://99percentinvisible.org/episode/vexillonaire/"
+                target="_blank"
+                >99% Invisible - Episode 104:
+                <span class="title">Vexillionaire →</span></a
+              >
+            </li>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/Flag_of_Mississippi" target="_blank" >Flag of Mississippi →</a>
+            </li>
+            <li>
+              <a href="https://www.getsomecolors.app/" target="_blank"
+                >Get Some Colors →</a
+              >
+            </li>
+            <li>
+              <a href="https://nava.org/"
+                >North American Vexillogical Association →</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="foot">
+          <p>
+            Get in touch:
+            <a href="mailto:hey@raisethestandard.us">hey@raisethestandard.us</a>
+          </p>
+          <p>Made with <a href="https://glitch.com" target="_blank">Glitch</a></p>
+          <p>
+            <button id="clear-dreams">
+              Clear
+            </button>
+          </p>
+        </div>
+      </section>
+    </div>
+    
+    <script src="fabric.min.js"></script>
+    <script src="builder.js"></script>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
