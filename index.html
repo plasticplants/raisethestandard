@@ -36,7 +36,7 @@
         <div class="intro-p">
           <h1>
             This website is a tool to help people design a
-            new flag for the state of Mississippi. You can use the current pieces and rearrange them into something better, or you can from scratch and create something completely new.<br><br>If you are looking for a place to start, check out the resources for info on Mississippi's history, good flag design principles, and great inspiration.
+            new flag for the state of Mississippi. You can use the current pieces and rearrange them into something better, or you can start from scratch and create something completely new.<br><br>If you are looking for a place to start, check out the resources for info on Mississippi's history, good flag design principles, and great inspiration.
           </h1>
         </div>
         <div class="foot">
@@ -112,9 +112,9 @@
           </button>
           <div class="color-selector">
           <input class="bar3" type="color" id="color" value="#3fa9f5" />
-          <button class="btn clr" onclick="applyFillColor()" title="apply fill color">
+<!--           <button class="btn clr" onclick="applyFillColor()" title="apply fill color">
             Apply Fill Color
-          </button>
+          </button> -->
         </div>
 
           <button onclick="openSubmission()" class="btn submit">
@@ -138,7 +138,7 @@
           type="text"
           maxlength="100"
           placeholder="Name!"
-          autofill="false"     
+          autocomplete="off"    
         />
         <input
           name="description"
@@ -146,7 +146,7 @@
           type="text"
           maxlength="500"
           placeholder="Describe your design!"
-          autofill="false"
+          autocomplete="off"
         />
         <button type="submit" id="submit-dream">
           Submit Flag
@@ -184,6 +184,9 @@
             <p>
               Press <span class="key">[</span> to move and object back one layer. Press <span class="key">]</span> to move an object forward one layer.
             </p>
+            <p>
+              Press <span class="key">–</span> to undo your last change. We all make mistakes. 
+            </p>
           </div>
         </div>
         <div class="overlaygrid"></div>
@@ -208,9 +211,9 @@
                 >A Great Example →</a
               >
             </li>
-            <!--         <li>
-          <a href="#" target="_blank"><span class="title">Good Flag, Bad Flag</span> by Ted Kaye →</a>
-        </li> -->
+                    <li>
+          <a href="http://nava.org/digital-library/design/GFBF_English.pdf" target="_blank"><span class="title">Good Flag, Bad Flag</span> by Ted Kaye →</a>
+        </li>
             <li>
               <a
                 href="https://99percentinvisible.org/episode/vexillonaire/"
@@ -240,11 +243,11 @@
             <a href="mailto:hey@raisethestandard.us">hey@raisethestandard.us</a>
           </p>
           <p>Made with <a href="https://glitch.com" target="_blank">Glitch</a></p>
-          <p>
+<!--           <p>
             <button id="clear-dreams">
               Clear
             </button>
-          </p>
+          </p> -->
         </div>
       </section>
     </div>
