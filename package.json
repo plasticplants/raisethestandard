@@ -2,7 +2,7 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "Raise The Standard",
+  "name": "hello-sqlite",
   "version": "0.0.1",
   "description": "An app to redesign the Mississippi state flag.",
   "main": "server.js",
@@ -10,8 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "sqlite3": "^4.0.0"
+    "express": "^4.17.1",
+    "sqlite3": "^4.1.1"
   },
   "engines": {
     "node": "8.x"
